@@ -13,6 +13,16 @@ body{
     background : linear-gradient(45deg, red ,blue);
     color: white;
 }
+.inputBox{
+    position: relative;
+}
+.inputBox span{
+    position: absolute;
+    top: 16px;
+    right: 6px;
+    cursor: pointer;
+    background-color: red;
+}
 .container{
     border: 1px solid white;
     padding: 28px 32px;
