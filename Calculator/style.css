@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Press+Start+2P&family=VT323&display=swap');
 
 * {
     margin: 0;
@@ -27,18 +29,23 @@ body {
 input {
     width: 320px;
     border: none;
-    padding: 24px;
+    padding: 18px;
     margin: 10px 0px;
-    background: transparent;
-    font-size: 40px;
+    background: rgb(37, 79, 61);
+    border-radius: 10px;
+    font-size: 55px;
     text-align: right;
     box-shadow: 0px 3px 15px rgba(84, 84, 84, 0.1);
     cursor: pointer;
-    color: white;
+    color: black;
+    font-family: "VT323", monospace;
+    font-weight: 400;
+    font-style: normal;
+    
 }
 
 input::placeholder {
-    color: white;
+    color: black;
 }
 
 button {
@@ -56,6 +63,7 @@ button {
 
 .equalBtn {
     background-color: orange;
+    color: black;
 }
 
 .operator {
