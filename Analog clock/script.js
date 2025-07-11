@@ -13,6 +13,9 @@ function showtime(){
     let MinuteRotation = 6*mm;
     let SecondRotation = 6*ss;
 
+    // let time = hh + ":" + mm + ":" + ss;
+    // document.getElementById('digital').innerHTML = time;
+
     sec.style.transform = `rotate(${SecondRotation}deg)`;
     min.style.transform = `rotate(${MinuteRotation}deg)`;
     hr.style.transform = `rotate(${HourRotation}deg)`;
