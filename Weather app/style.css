@@ -12,12 +12,13 @@ body {
 .card {
     width: 90%;
     max-width: 470px;
-    background: linear-gradient(135deg, #00feba, #5b548a);
+    background: linear-gradient(135deg, #b0970a, #07beeb);
     color: fff;
     margin: 100px auto 0;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
+    box-shadow: 0 0 15px rgb(95, 228, 7);
 }
 
 .search {
@@ -49,6 +50,10 @@ body {
     height: 60px;
     width: 60px;
     cursor: pointer;
+}
+
+.search button:hover{
+    box-shadow: 0 0 15px rgb(171, 233, 26);
 }
 
 .search button img {
