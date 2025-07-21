@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Form Validation</title>
 </head>
+
 <body>
     <div class="container">
         <div class="box">
-            <header class="sign-up">
+            <header class="sign-up-header">
                 <h1>sign up</h1>
             </header>
-            <main></main>
+
+            <main class="sing-up-body">
+                <form action="#">
+                    <p>
+                        <label for="name">Full Name</label>
+                        <input type="text" placeholder="Type Name Hear" id="name">
+                    </p>
+                    <p>
+                        <label for="email">Gmail</label>
+                        <input type="text" placeholder="abc@gmail.com" id="email">
+                    </p>
+                    <p>
+                        <label for="password">Password</label>
+                        <input type="password" placeholder="at least 8 character" id="password">
+                    </p>
+                    <p>
+                        <input class="submit" type="submit" value="Create Account">
+                    </p>
+                </form>
+            </main>
+
             <footer></footer>
         </div>
     </div>
 </body>
+
 </html>

@@ -1,16 +1,18 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: sans-serif;
     color: white;
 }
-.container{
+
+.container {
     height: 100vh;
     width: 100vw;
     background-color: rgb(6, 6, 79);
 }
-.box{
+
+.box {
     width: 400px;
     position: relative;
     top: 50%;
@@ -21,8 +23,41 @@
     padding: 20px 40px;
     backdrop-filter: blur(8px);
 }
-.sign-up{
+
+.sign-up-header {
     font-size: 2.2rem;
     text-align: center;
     padding: 5px 8px;
 }
+
+.sing-up-body p{
+    margin-top: 20px;
+}
+.sing-up-body p label{
+    font-size: 18px;
+    font-weight: 600;
+}
+.sing-up-body p input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-block: 4px;
+    border: none;
+    outline: none;
+    color: black;
+}
+/* .submit{
+    background-color: rgb(10, 107, 252);
+    color: white;
+} */
+ .sing-up-body p input[type="submit"]{
+    background-color: rgb(33, 69, 250);
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+ }
+ .sing-up-body p input[type="submit"]:hover{
+    background-color: blue;
+ }
