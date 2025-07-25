@@ -9,7 +9,7 @@
 .container {
     height: 100vh;
     width: 100vw;
-    background-color: rgb(6, 6, 79);
+    background : linear-gradient(360deg, black, #08440d);
 }
 
 .box {
@@ -47,6 +47,13 @@
     outline: none;
     color: black;
 }
+
+.sing-up-body p span{
+    font-size: 15px;
+    color: red;
+
+}
+
 /* .submit{
     background-color: rgb(10, 107, 252);
     color: white;
@@ -61,3 +68,23 @@
  .sing-up-body p input[type="submit"]:hover{
     background-color: blue;
  }
+
+ .signupfooter p{
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 600;
+ }
+  .signupfooter p a{
+    color: rgb(33, 69, 250);
+    text-decoration: none;
+  }
+   .signupfooter p a:hover{
+    color: rgb(40, 75, 230);
+    text-decoration: underline;
+  }
+
+  .sing-up-body p img{
+    position: absolute;
+    right: 45px;
+    top: 165px;
+  }
