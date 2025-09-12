@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(22, 58, 75);
+}
+.quote-box{
+    background : linear-gradient(135deg,rgb(255, 31, 31), rgb(0, 31, 205));
+    width: 700px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 10px 20px 0px rgb(89, 181, 242);
+}
+
+.quote-box h2{
+    font-size: 32px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.quote-box h2::after{
+    content: '';
+    width: 75px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: rgb(12, 16, 251);
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.quote-box blockquote{
+    font-size: 26px;
+    min-height: 110px;
+}
+.quote-box blockquote::before, .quote-box blockquote::after{
+    content: '"';
+}
+
+.quote-box span{
+    display: block;
+    margin-top: 10px;
+    float: right;
+    position: relative;
+}
+
+.quote-box span::before{
+    content: '';
+    width: 20px ;
+    height: 2px;
+    background-color: blue;
+    position: absolute;
+    top: 50%;
+    left: -30px;
+}
+
+.quote-box .btn{
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+.quote-box .btn button{
+    background-color: rgb(64, 103, 229);
+    color: rgb(255, 255, 255);
+    border-radius: 25px;
+    border: 1px solid black;
+    outline: none;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+}
+.quote-box .btn button:hover{
+    background: linear-gradient(135deg,red, blue);
+    color: black;
+    box-shadow: 0 0 15px white;
+    transition: all 0.3s ease;
+}
+.quote-box button img{
+    margin-right: 10px;
+}
+.quote-box button:nth-child(2){
+    background: white;
+    color: black;
+}
+
