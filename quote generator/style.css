@@ -24,6 +24,7 @@ body{
     font-size: 32px;
     margin-bottom: 40px;
     position: relative;
+    color: white;
 }
 
 .quote-box h2::after{
@@ -41,6 +42,7 @@ body{
 .quote-box blockquote{
     font-size: 26px;
     min-height: 110px;
+    color: white;
 }
 .quote-box blockquote::before, .quote-box blockquote::after{
     content: '"';
@@ -51,13 +53,14 @@ body{
     margin-top: 10px;
     float: right;
     position: relative;
+    color: white;
 }
 
 .quote-box span::before{
     content: '';
     width: 20px ;
     height: 2px;
-    background-color: blue;
+    background-color: rgb(251, 251, 251);
     position: absolute;
     top: 50%;
     left: -30px;

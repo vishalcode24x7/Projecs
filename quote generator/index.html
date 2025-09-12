@@ -11,14 +11,15 @@
 <body>
     <div class="quote-box">
         <h2>Quote of the day</h2>
-        <blockquote>Loading...</blockquote>
-        <span>Loading...</span>
+        <blockquote id="Quote">Loading...</blockquote>
+        <span id="Author">Loading...</span>
 
         <div class="btn">
-            <button>New Quote</button>
-            <button><img src="twitter.png" height="25">Tweet</button>
+            <button onclick="getquote(api_url)">New Quote</button>
+            <button onclick="tweet()"><img src="twitter.png" height="25">Tweet</button>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
