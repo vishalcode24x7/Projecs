@@ -3,11 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>swipeable signin & login</title>
 </head>
+
 <body>
     <div class="container active-login">
-        <div class="welcome"></div>
+        <div class="welcome-box">
+            <h1 class="welcome">Welcome!💖</h1>
+            <p>Please sign in or create an account to continue.</p>
+        </div>
+        <div class="form-container">
+            <div class="form-container login">
+                <h2>Login</h2>
+                <form>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p>Don't have an account? <span class="switch-login">Sign up</span></p>
+            </div>
+
+            <div class="form-container signup">
+                <h2>Sign Up</h2>
+                <form>
+                    <input type="text" placeholder="Username" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+                <p>Already have an account? <span class="switch-signup">Login</span></p>
+            </div>
+        </div>
     </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
