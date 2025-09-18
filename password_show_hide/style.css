@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+
+}
+
+.password{
+    display: inline-block;
+    position: relative;
+    margin-top: 40vh;
+    /* margin: 160px; */
+}
+h2{
+    color: white;
+    text-align: center;
+}
+
+.password input{
+    width: 330px;
+    height: 40px;
+    /* max-resolution: 8px 30px; */
+    font-size: 20px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 7px 40px 7px 20px;
+    color: black;
+    letter-spacing: 2px;
+    box-shadow: inset 8px 8px 16px gray, inset -8px -8px 16px gray;
+}
+
+.password input:hover{
+    box-shadow: 0 0 10px white ;
+}
+
+.password input::placeholder{
+    text-transform: capitalize;
+    color: rgb(101, 99, 99);
+    font-size: 20px;
+}
+.pass-icon{
+    position: absolute;
+    top: 35px;
+    right: 10px;
+    cursor: pointer;
+}
