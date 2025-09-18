@@ -5,7 +5,7 @@
 }
 
 body{
-    background: rgb(22, 58, 75);
+    background: rgb(0, 0, 0);
 }
 .quote-box{
     background : linear-gradient(135deg,rgb(255, 31, 31), rgb(0, 31, 205));
