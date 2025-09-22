@@ -24,6 +24,7 @@
 }
 .hero h1 span{
     color: orange;
+    text-decoration: underline;
 }
 
 textarea{
