@@ -55,6 +55,7 @@ body{
     height: 100px;
     position: absolute;
     transform: rotate(-45deg);
+    visibility: hidden;
 }
 
 .red-heart::before,.red-heart::after{
@@ -77,9 +78,10 @@ body{
 }
 
 .red-heart.animation{
-    animation: pop 0.5s linear;
+    animation: pop 0.9s linear;
+    visibility: visible;
 }
-.heart.fill-color{
+.heart .fill-color{
     background: var(--main-color);
 }
 @keyframes pop {
