@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #011d9a, #20053b);
+    color: white;
+}
+
+p{
+    font-size: 3rem;
+    font-weight: bold;
+}
+.js{
+    color: #f57b47;
+}
