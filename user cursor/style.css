@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     background: #000;
-    /* cursor: none; */
+    cursor: none;
     color: white;
 }
 
