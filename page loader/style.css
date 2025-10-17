@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  margin: 0;
+  text-align: center;
+}
+
+.background {
+  background: url(https://img.freepik.com/premium-photo/shape-pattern-wallpaper_1134901-256772.jpg?semt=ais_hybrid&w=740&q=80)
+    no-repeat center center/cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  fill: blue(0);
+}
+
+.loader {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0;
+  color: rgb(0, 0, 0);
+}
+
+/* Smooth fade-in for Welcome */
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  100% {
+    /* margin-left: 50px; */
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
