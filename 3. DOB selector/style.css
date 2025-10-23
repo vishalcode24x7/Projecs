@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: arial, sans-serif;
+    background-color: rgb(65, 46, 65);
+}
+
+.date-form {
+    background-color: #ffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 300px;
+}
+
+label {
+    font-size: 1.1em;
+    color: #333333;
+}
+
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #555;
+    outline: none;
+    transition: all border-color 0.3s ease;
+}
+
+input[type="date"]:focus {
+    border-color: #4caf50;
+}
+
+input[type="submit"] {
+
+    background-color: #45a049;
+    color: #ffff;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #064109;
+}
