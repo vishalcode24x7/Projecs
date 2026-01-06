@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 30px;
+    background-color: rgb(12, 9, 28) ;
+}
+
+#searchBox{
+    width: 50%;
+    height: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+#input {
+    width: 80%;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 12px 0px 0px 12px;
+}
+
+#searchBtn{
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    background-color: crimson;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 0px 12px 12px 0px;
+}
+
+.content-container{
+    width: 90%;
+    color: white;
+    font-size: 18px;
+    padding-top: 20px;
+    text-align: justify;
+    max-width: 700px;
+    margin-top: 20px;
+    font-family: sans-serif;
+}
+
+mark{
+    background-color: rgb(60, 225, 42);
+
+}
