@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(35deg, blue, red);
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.card{
+    background-color: rgba(0, 0, 0, 0.663);
+    border: 2px solid black;
+    color: white;
+    padding: 20px ;
+    width: 25%;
+    height: 50%;
+    cursor: pointer;
+    transition: all 0.5s;
+    border-radius: 10px;
+}
+
+.card:hover{
+    box-shadow: 1px 1px 5px 0px;
+    transform: scale(1.2);
+}
+
+.container{
+    margin: 0 20px;
+    text-align: center;
+}
+
+.fa-facebook{
+    color: blue;
+    font-size: 40px;
+}
+
+.fa-youtube{
+    color: red;
+    font-size: 40px;
+}
+
+.followers{
+    font-size: 4rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
