@@ -1,8 +1,21 @@
+/* @import 'locomotive-scroll/dist/locomotive-scroll.css'; */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: "Font";
+    color: white;
+}
+
+.cursor{
+    position: absolute;
+    z-index: 99;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    mix-blend-mode: difference;
+    /* transition: left linear 0.4s top linear 0.4s; */
 }
 
 html, body{
@@ -15,7 +28,150 @@ html, body{
 }
 
 .page1{
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
-    background-color: red;
+}
+#nav{
+    height: 55px;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+#nav img{
+    height: 26px;
+}
+
+#nav-part2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}  
+
+#nav #circle{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+#nav h4{
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+#nav h4:nth-child(1){
+    border-bottom: 2px solid white;
+}
+
+.page1 h1{
+    font-size: 8vw;
+    font-weight: 400;
+    margin-top: 10vw;
+    margin-left: 6vw;
+    line-height: 1;
+}
+
+.page1 h2{
+    font-size: 8vw;
+    font-weight: 400;
+    margin-left: 26vw;
+    line-height: 1;
+}
+
+.page1 video{
+    width: 60%;
+    margin-top: 10vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+.page2{
+    min-height: 85vh;
+    width: 100%;
+    padding: 100px 5vw;
+    border-bottom: 1px solid gray;
+}
+
+.page2 h1{
+    font-size: 7vw;
+    font-weight: 300;
+    color: black;
+
+}
+
+.page2-container{
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.page2-left{
+    color: black;
+    width: 30%;
+}
+
+.page2-right{
+    color: black;
+    width: 27%;
+}
+
+.page2-left h2{
+    font-size: 3vw;
+    font-weight: 300;
+    color: black;
+    line-height: 1;
+}
+
+.page2-right p{
+    font-size: 18px;
+    color: black;
+    line-height: 1.4;
+}
+
+.page2-right button{
+    width: 100%;
+    border-radius: 50px;
+    background-color: #edbfff;
+    color: black;
+    border: none;
+    padding: 4px 0;
+    margin-top: 20px;
+}
+
+.page3{
+    width: 100%;
+    min-height: 150vh;
+    position: relative;
+    padding-top: 100px;
+}
+
+.page3 h1{
+    font-size: 6.5vw;
+    font-weight: 300;
+    color: black;
+    margin-left: 100px;
+}
+
+.page3-part1{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.page3-part1 img{
+    height: 500px;
+    margin-top: 160px;
+}
+
+.page3-part1 video{
+    height: 400px;
 }
