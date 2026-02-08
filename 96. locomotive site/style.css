@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+#yellow{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: #f5e41b;
+}
+
+#page1 {
+    height: 100vh;
+    width: 100vw;
+    background-color: #f5e41b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#page1 h1 {
+    text-transform: uppercase;
+    font-size: 6vw;
+    line-height: 5vw;
+    font-weight: 400;
+    letter-spacing: -2px;
+}
+
+#page2 {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(0, 0, 0);
+}
+
+#page3 {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(255, 255, 255);
+}
