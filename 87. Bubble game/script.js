@@ -3,7 +3,7 @@ let hitrn = 0;
 function makeBubble() {
     let clutter = "";
 
-    for (let i = 0; i <= 206; i++) {
+    for (let i = 0; i <= 76; i++) {
         let rn = Math.floor(Math.random() * 10);
         clutter += `<div class="bubble">${rn}</div>`;
     }
