@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obstacle Avoiding Robot Car | College Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f4f8;
+            color: #2d3748;
+        }
+
+        /* ── HEADER ── */
+        header {
+            background: linear-gradient(135deg, #1a56db, #1e40af);
+            color: white;
+            padding: 0 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 62px;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: #fbbf24;
+        }
+
+        nav {
+            display: flex;
+            gap: 6px;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 20px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            background: linear-gradient(135deg, #1e40af 0%, #1a56db 50%, #2563eb 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 260px;
+            text-align: left;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.2);
+            border: 1px solid #fbbf24;
+            color: #fbbf24;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 14px;
+        }
+
+        .hero-text h1 span {
+            color: #fbbf24;
+        }
+
+        .hero-text p {
+            font-size: 0.95rem;
+            line-height: 1.75;
+            color: rgba(255, 255, 255, 0.82);
+            margin-bottom: 24px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-yellow {
+            background: #fbbf24;
+            color: #1e3a8a;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 11px 26px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .btn-yellow:hover {
+            background: #f59e0b;
+            transform: translateY(-1px);
+        }
+
+        .btn-white {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 11px 26px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .btn-white:hover {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* hero car image */
+        .hero-img-wrap {
+            flex: 0 0 auto;
+            width: 300px;
+        }
+
+        .hero-img-wrap img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            border: 3px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* ── STATS ── */
+        .stats {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .stats-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .stat {
+            flex: 1;
+            min-width: 130px;
+            text-align: center;
+            padding: 22px 16px;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-num {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #1a56db;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: #718096;
+            margin-top: 4px;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            padding: 60px 20px;
+        }
+
+        .section-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-alt {
+            background: white;
+        }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .section-head p {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+
+        .underline {
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, #1a56db, #fbbf24);
+            border-radius: 2px;
+            margin: 12px auto 0;
+        }
+
+        /* ── HOW IT WORKS ── */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .step {
+            background: white;
+            border-radius: 12px;
+            padding: 28px 20px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .section-alt .step {
+            background: #f7faff;
+        }
+
+        .step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(26, 86, 219, 0.1);
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin: 0 auto 14px;
+        }
+
+        .step h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 0.82rem;
+            color: #718096;
+            line-height: 1.65;
+        }
+
+        /* ── COMPONENTS ── */
+        .comp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 24px;
+        }
+
+        .comp-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .comp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(26, 86, 219, 0.12);
+        }
+
+        .comp-img {
+            height: 190px;
+            background: #f7faff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .comp-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 18px;
+            transition: transform 0.3s;
+        }
+
+        .comp-card:hover .comp-img img {
+            transform: scale(1.05);
+        }
+
+        .comp-body {
+            padding: 18px;
+        }
+
+        .comp-body h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 6px;
+        }
+
+        .comp-body p {
+            font-size: 0.82rem;
+            color: #718096;
+            line-height: 1.65;
+            margin-bottom: 14px;
+        }
+
+        .specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .spec {
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 3px 10px;
+            border-radius: 20px;
+            border: 1px solid #bfdbfe;
+        }
+
+        .buy-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 10px;
+            background: #ff9900;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .buy-btn:hover {
+            background: #e68a00;
+            transform: scale(1.02);
+        }
+
+        /* ── CIRCUIT DIAGRAM ── */
+        .circuit-img-wrap {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 36px;
+            background: white;
+        }
+
+        .circuit-img-wrap img {
+            width: 100%;
+            display: block;
+        }
+
+        .tables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .table-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .table-card h4 {
+            background: #1a56db;
+            color: white;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 12px 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #eff6ff;
+            color: #1e3a8a;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 9px 14px;
+            text-align: left;
+            border-bottom: 1px solid #dbeafe;
+        }
+
+        td {
+            font-size: 0.8rem;
+            color: #4a5568;
+            padding: 9px 14px;
+            border-bottom: 1px solid #f0f4f8;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: #f7faff;
+        }
+
+        .pin {
+            color: #1a56db;
+            font-weight: 600;
+        }
+
+        .conn {
+            color: #047857;
+            font-weight: 500;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            font-size: 0.88rem;
+            margin-bottom: 6px;
+        }
+
+        footer span {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.78rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .hero-img-wrap {
+                width: 260px;
+            }
+
+            .stat {
+                min-width: 100px;
+            }
+
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.78rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 0.95rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 40px 16px;
+            }
+
+            .section {
+                padding: 40px 16px;
+            }
+
+            .hero-img-wrap {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="nav-inner">
+            <div class="logo">🤖 Robot<span>Car</span></div>
+            <nav>
+                <a href="#working">Working</a>
+                <a href="#components">Components</a>
+                <a href="#circuit">Circuit</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <div class="hero-tag">🎓 College Project</div>
+                <h1>Obstacle Avoiding<br><span>Robot Car</span></h1>
+                <p>An Arduino UNO based smart robot car that detects obstacles ahead using an Ultrasonic Sensor and
+                    avoids them automatically — without any remote control!</p>
+                <div class="hero-btns">
+                    <a href="#components" class="btn-yellow">View Components</a>
+                    <a href="#circuit" class="btn-white">Circuit Diagram</a>
+                </div>
+            </div>
+            <div class="hero-img-wrap">
+                <img src="model.jpeg" alt="Robot Car Model">
+            </div>
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stats-inner">
+            <div class="stat">
+                <div class="stat-num">6</div>
+                <div class="stat-label">Components Used</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">4</div>
+                <div class="stat-label">DC Motors</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">40cm</div>
+                <div class="stat-label">Detection Range</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">180°</div>
+                <div class="stat-label">Servo Scan</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">5V</div>
+                <div class="stat-label">Arduino Voltage</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- COMPONENTS -->
+    <section class="section section-alt" id="components">
+        <div class="section-inner">
+            <div class="section-head">
+                <h2>🔧 Project Components</h2>
+                <p>Click on any component to buy it from Amazon</p>
+                <div class="underline"></div>
+            </div>
+            <div class="comp-grid">
+
+                <!-- Arduino UNO -->
+                <div class="comp-card">
+                    <div class="comp-img">
+                        <img src="Ariduino-uno.jpeg" alt="Arduino UNO">
+                    </div>
+                    <div class="comp-body">
+                        <h4>Arduino UNO R3</h4>
+                        <p>The brain of this project. The ATmega328P microcontroller controls all sensors and motors.
+                            Code is uploaded via Arduino IDE.</p>
+                        <div class="specs">
+                            <span class="spec">ATmega328P</span>
+                            <span class="spec">16 MHz</span>
+                            <span class="spec">14 Digital Pins</span>
+                            <span class="spec">5V</span>
+                        </div>
+                        <a class="buy-btn" href="https://www.amazon.in/s?k=Arduino+UNO+R3" target="_blank">
+                            🛒 Buy on Amazon
+                        </a>
+                    </div>
+                </div>
+
+                <!-- L293D -->
+                <div class="comp-card">
+                    <div class="comp-img">
+                        <img src="L293D-driver.jpeg" alt="L293D Motor Driver">
+                    </div>
+                    <div class="comp-body">
+                        <h4>L293D Motor Driver Shield</h4>
+                        <p>A dual H-Bridge motor driver that converts Arduino's low-power signals into enough current to
+                            drive DC motors forward and backward.</p>
+                        <div class="specs">
+                            <span class="spec">Dual H-Bridge</span>
+                            <span class="spec">600mA/Channel</span>
+                            <span class="spec">4 Motors</span>
+                        </div>
+                        <a class="buy-btn" href="https://www.amazon.in/s?k=L293D+motor+driver+shield+Arduino"
+                            target="_blank">
+                            🛒 Buy on Amazon
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ultrasonic Sensor -->
+                <div class="comp-card">
+                    <div class="comp-img">
+                        <img src="Ultrasonic-sensor.jpeg" alt="HC-SR04 Ultrasonic Sensor">
+                    </div>
+                    <div class="comp-body">
+                        <h4>HC-SR04 Ultrasonic Sensor</h4>
+                        <p>Uses sound waves to calculate the exact distance of obstacles ahead. This acts as the "eyes"
+                            of the robot car.</p>
+                        <div class="specs">
+                            <span class="spec">2cm–400cm Range</span>
+                            <span class="spec">5V VCC</span>
+                            <span class="spec">±3mm Accuracy</span>
+                        </div>
+                        <a class="buy-btn" href="https://www.amazon.in/s?k=HC-SR04+ultrasonic+sensor" target="_blank">
+                            🛒 Buy on Amazon
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servo Motor -->
+                <div class="comp-card">
+                    <div class="comp-img">
+                        <img src="Servo-motor.jpeg" alt="Servo Motor">
+                    </div>
+                    <div class="comp-body">
+                        <h4>SG90 Servo Motor</h4>
+                        <p>Rotates the ultrasonic sensor left and right (0°–180°) so the robot can scan its surroundings
+                            and choose the best direction.</p>
+                        <div class="specs">
+                            <span class="spec">0°–180°</span>
+                            <span class="spec">PWM Control</span>
+                            <span class="spec">4.8–6V</span>
+                        </div>
+                        <a class="buy-btn" href="https://www.amazon.in/s?k=SG90+micro+servo+motor" target="_blank">
+                            🛒 Buy on Amazon
+                        </a>
+                    </div>
+                </div>
+
+                <!-- DC Motor -->
+                <div class="comp-card">
+                    <div class="comp-img">
+                        <img src="Dc-motor.jpeg" alt="DC Gear Motor">
+                    </div>
+                    <div class="comp-body">
+                        <h4>TT DC Gear Motors (×4)</h4>
+                        <p>4 yellow DC gear motors that drive all four wheels of the car. Controlled by the L293D driver
+                            for forward, backward, left and right movement.</p>
+                        <div class="specs">
+                            <span class="spec">3V–6V</span>
+                            <span class="spec">~200 RPM</span>
+                            <span class="spec">Gear Reduction</span>
+                        </div>
+                        <a class="buy-btn" href="https://www.amazon.in/s?k=TT+DC+gear+motor+robot+car+yellow"
+                            target="_blank">
+                            🛒 Buy on Amazon
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Chassis -->
+                <div class="comp-card">
+                    <div class="comp-img">
+                        <img src="wheel.webp" alt="4WD Chassis and Wires">
+                    </div>
+                    <div class="comp-body">
+                        <h4>4WD Chassis + Wires</h4>
+                        <p>An acrylic 4WD chassis on which all components are mounted, along with colored jumper wires
+                            that make all the electrical connections.</p>
+                        <div class="specs">
+                            <span class="spec">4WD Chassis</span>
+                            <span class="spec">Jumper Wires</span>
+                            <span class="spec">Battery Holder</span>
+                        </div>
+                        <a class="buy-btn" href="https://www.amazon.in/s?k=4WD+robot+car+chassis+kit+Arduino"
+                            target="_blank">
+                            🛒 Buy on Amazon
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="working">
+        <div class="section-inner">
+            <div class="section-head">
+                <h2>⚙️ How Does It Work?</h2>
+                <p>Step-by-step working process of the robot</p>
+                <div class="underline"></div>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">📡</div>
+                    <h4>Detect</h4>
+                    <p>The ultrasonic sensor emits sound waves and measures the distance of obstacles ahead (range:
+                        2cm–400cm).</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">🧠</div>
+                    <h4>Process</h4>
+                    <p>The Arduino UNO reads the sensor data and decides whether to move forward, stop, or turn in a
+                        direction.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">🔄</div>
+                    <h4>Scan</h4>
+                    <p>The servo motor rotates the sensor left and right to scan a wider area and find the best
+                        available path.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">🚗</div>
+                    <h4>Move</h4>
+                    <p>The L293D motor driver receives signals from Arduino and drives all 4 DC motors in the correct
+                        direction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CIRCUIT DIAGRAM -->
+    <section class="section" id="circuit">
+        <div class="section-inner">
+            <div class="section-head">
+                <h2>📋 Circuit Diagram & Connections</h2>
+                <p>Actual circuit diagram and pin connections</p>
+                <div class="underline"></div>
+            </div>
+
+            <div class="circuit-img-wrap">
+                <img src="circuit-diagram.jpeg" alt="Circuit Diagram">
+            </div>
+
+            <div class="tables-grid">
+                <div class="table-card">
+                    <h4>Arduino ↔ L293D Motor Driver</h4>
+                    <table>
+                        <tr>
+                            <th>Arduino Pin</th>
+                            <th>L293D Pin</th>
+                            <th>Function</th>
+                        </tr>
+                        <tr>
+                            <td class="pin">D3</td>
+                            <td class="conn">IN1</td>
+                            <td>Left Motor Fwd</td>
+                        </tr>
+                        <tr>
+                            <td class="pin">D4</td>
+                            <td class="conn">IN2</td>
+                            <td>Left Motor Back</td>
+                        </tr>
+                        <tr>
+                            <td class="pin">D5</td>
+                            <td class="conn">IN3</td>
+                            <td>Right Motor Fwd</td>
+                        </tr>
+                        <tr>
+                            <td class="pin">D6</td>
+                            <td class="conn">IN4</td>
+                            <td>Right Motor Back</td>
+                        </tr>
+                        <tr>
+                            <td class="pin">5V</td>
+                            <td class="conn">VCC</td>
+                            <td>Power</td>
+                        </tr>
+                        <tr>
+                            <td class="pin">GND</td>
+                            <td class="conn">GND</td>
+                            <td>Ground</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="table-card">
+                    <h4>Arduino ↔ HC-SR04 Sensor</h4>
+                    <table>
+                        <tr>
+                            <th>Arduino Pin</th>
+                            <th>Sensor Pin</th>
+                            <th>Function</th>
+                        </tr>
+                        <tr>
+                            <td class="pin">D9</td>
+                            <td class="conn">TRIG</td>
+                            <td>Trigger Signal</td>
+                        </tr>
+                        <tr>
+                            <td class="pin">D10</td>
+                            <td class="conn">ECHO</td>
+                            <td>Echo Response</td>
+                        </tr>
+                        <tr>
+                            <td class="pin">5V</td>
+                            <td class="conn">VCC</td>
+                            <td>Power</td>
+                        </tr>
+                        <tr>
+                            <td class="pin">GND</td>
+                            <td class="conn">GND</td>
+                            <td>Ground</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="table-card">
+                    <h4>Arduino ↔ SG90 Servo Motor</h4>
+                    <table>
+                        <tr>
+                            <th>Arduino Pin</th>
+                            <th>Servo Wire</th>
+                            <th>Function</th>
+                        </tr>
+                        <tr>
+                            <td class="pin">D11 (PWM)</td>
+                            <td class="conn">Yellow (Signal)</td>
+                            <td>Servo Control</td>
+                        </tr>
+                        <tr>
+                            <td class="pin">5V</td>
+                            <td class="conn">Red Wire</td>
+                            <td>Power</td>
+                        </tr>
+                        <tr>
+                            <td class="pin">GND</td>
+                            <td class="conn">Brown Wire</td>
+                            <td>Ground</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>🤖 Obstacle Avoiding Robot Car — College Project</p>
+        <span>Arduino UNO &nbsp;|&nbsp; L293D Motor Driver &nbsp;|&nbsp; HC-SR04 &nbsp;|&nbsp; SG90 Servo &nbsp;|&nbsp;
+            DC Motors</span>
+    </footer>
+
+</body>
+
+</html>
